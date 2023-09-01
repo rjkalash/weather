@@ -36,4 +36,14 @@ if (event.key=="Enter") {
 }
     
 })
+if ("geolocation" in navigator) {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    var lat = position.coords.latitude;
+    var lng = position.coords.longitude;
+    var n=String(lat)+','+String(lng)
+    weather.fetchWeather(n)
+
+    
+  });
+}
 weather.fetchWeather("Lucknow")
